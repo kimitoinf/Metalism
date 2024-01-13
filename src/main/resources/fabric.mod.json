@@ -1,0 +1,43 @@
+{
+	"schemaVersion": 1,
+	"id": "metalism",
+	"version": "${version}",
+	"name": "Metalism",
+	"description": "Metalism.",
+	"authors": [
+		"Kimit"
+	],
+	"contact": {
+		"sources": "https://github.com/kimitoinf/Metalism"
+	},
+	"license": "MIT",
+	"icon": "assets/metalism/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"kimit.metalism.Metalism"
+		],
+		"client": [
+			"kimit.metalism.MetalismClient"
+		],
+		"fabric-datagen": [
+			"kimit.metalism.MetalismDataGenerator"
+		]
+	},
+	"mixins": [
+		"metalism.mixins.json",
+		{
+			"config": "metalism.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.3",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
