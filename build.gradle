@@ -34,6 +34,10 @@ fabricApi {
 	configureDataGeneration()
 }
 
+configurations {
+	depend.extendsFrom implementation
+}
+
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -48,7 +52,7 @@ dependencies {
 
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 
-	implementation 'org.reflections:reflections:0.10.2'
+	depend(implementation('org.reflections:reflections:0.10.2'))
 }
 
 processResources {
@@ -74,9 +78,11 @@ java {
 }
 
 jar {
-	from("LICENSE") {
-		rename { "${it}_${project.base.archivesName.get()}"}
-	}
+	from { configurations.depend.collect { it.isDirectory() ? it : zipTree(it) } }
+}
+
+remapJar {
+
 }
 
 // configure the maven publication
