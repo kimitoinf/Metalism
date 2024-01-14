@@ -21,7 +21,7 @@
 			"kimit.metalism.MetalismClient"
 		],
 		"fabric-datagen": [
-			"kimit.metalism.MetalismDataGenerator"
+			"kimit.metalism.datagen.MetalismDataGenerator"
 		]
 	},
 	"mixins": [
