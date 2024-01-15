@@ -21,14 +21,19 @@ public class LanguageProvider extends FabricLanguageProvider
 	{
 		try
 		{
-			for (Class<? extends TranslationInterface> loop : new Reflections().getSubTypesOf(TranslationInterface.class))
-				for (Translation loop2 : loop.getDeclaredConstructor().newInstance().TRANSLATIONS)
-					if (loop2.getLang().equals(Lang))
-						builder.add(loop2.getIdentifier(), loop2.getValue());
+			for (Class<? extends Translations> loop : new Reflections().getSubTypesOf(Translations.class))
+			{
+				Translations object = loop.getDeclaredConstructor().newInstance();
+				object.initTranslation();
+			}
 		}
 		catch (InvocationTargetException | InstantiationException | IllegalAccessException | NoSuchMethodException e)
 		{
 			throw new RuntimeException(e);
 		}
+
+		for (Translation loop : Translations.TRANSLATIONS)
+			if (loop.getLang().equals(Lang))
+				builder.add(loop.getIdentifier(), loop.getValue());
 	}
 }

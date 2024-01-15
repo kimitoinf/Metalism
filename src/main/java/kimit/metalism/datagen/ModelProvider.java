@@ -3,6 +3,7 @@ package kimit.metalism.datagen;
 import kimit.metalism.Metalism;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.minecraft.block.Block;
 import net.minecraft.data.client.BlockStateModelGenerator;
 import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.data.client.Models;
@@ -18,7 +19,8 @@ public class ModelProvider extends FabricModelProvider
 	@Override
 	public void generateBlockStateModels(BlockStateModelGenerator generator)
 	{
-
+		for (Block loop : Metalism.BLOCKS)
+			generator.registerSimpleCubeAll(loop);
 	}
 
 	@Override

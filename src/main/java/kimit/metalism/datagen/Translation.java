@@ -1,5 +1,7 @@
 package kimit.metalism.datagen;
 
+import java.util.Objects;
+
 public class Translation
 {
 	private final Language Lang;
@@ -11,6 +13,19 @@ public class Translation
 		Lang = lang;
 		Identifier = identifier;
 		Value = value;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return Objects.hash(Lang, Identifier, Value);
+	}
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		if (!(obj instanceof Translation t)) return false;
+		return t.getLang() == Lang && t.getIdentifier().equals(Identifier) && t.getValue().equals(Value);
 	}
 
 	public Language getLang()
