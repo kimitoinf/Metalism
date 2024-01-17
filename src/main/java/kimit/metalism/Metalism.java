@@ -3,11 +3,17 @@ package kimit.metalism;
 import kimit.metalism.block.MetalismBlock;
 import kimit.metalism.item.MetalismItem;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.biome.v1.BiomeModification;
+import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
+import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.gen.GenerationStep;
 import org.reflections.Reflections;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +33,8 @@ public class Metalism implements ModInitializer
 	public void onInitialize()
 	{
 		LOGGER.info("Metalism.");
+
+		BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, RegistryKey.of(RegistryKeys.PLACED_FEATURE, new Identifier(IDENTIFIER, "ore")));
 
 		try
 		{
