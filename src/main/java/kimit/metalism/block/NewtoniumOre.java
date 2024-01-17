@@ -7,6 +7,7 @@ import kimit.metalism.datagen.Translation;
 import kimit.metalism.datagen.Translations;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.minecraft.item.BlockItem;
 import net.minecraft.registry.RegistryKeys;
 
 public class NewtoniumOre extends MetalismBlock implements Translations
@@ -14,7 +15,7 @@ public class NewtoniumOre extends MetalismBlock implements Translations
 	public NewtoniumOre()
 	{
 		super(FabricBlockSettings.create(), "newtonium_ore");
-		initBlockItem(new Item(this, new FabricItemSettings()));
+		setItem(new BlockItem(this, new FabricItemSettings()));
 	}
 
 	@Override

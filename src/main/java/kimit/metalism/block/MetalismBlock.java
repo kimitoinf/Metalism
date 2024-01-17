@@ -6,7 +6,7 @@ import net.minecraft.item.BlockItem;
 public class MetalismBlock extends Block
 {
 	public final String Identifier;
-	private Item BlockItem;
+	protected BlockItem Item;
 
 	public MetalismBlock(Settings settings, String identifier)
 	{
@@ -14,21 +14,13 @@ public class MetalismBlock extends Block
 		Identifier = identifier;
 	}
 
-	public void initBlockItem(Item item)
+	protected void setItem(BlockItem item)
 	{
-		BlockItem = item;
+		Item = item;
 	}
 
-	public Item getBlockItem()
+	public BlockItem getItem()
 	{
-		return BlockItem;
-	}
-
-	public static class Item extends BlockItem
-	{
-		public Item(Block block, Settings settings)
-		{
-			super(block, settings);
-		}
+		return Item;
 	}
 }
