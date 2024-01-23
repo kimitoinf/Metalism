@@ -26,7 +26,7 @@ public class ModelProvider extends FabricModelProvider
 	@Override
 	public void generateItemModels(ItemModelGenerator generator)
 	{
-		for (Item loop : Metalism.ITEMS)
+		for (Item loop : Metalism.ITEMS_WITHOUT_BLOCKS)
 			generator.register(loop, Models.GENERATED);
 	}
 }

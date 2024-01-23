@@ -1,4 +1,6 @@
 {
+  "block.metalism.keplerium_ore": "Keplerium Ore",
   "block.metalism.newtonium_ore": "Newtonium Ore",
+  "item.metalism.keplerium_ingot": "Keplerium Ingot",
   "item.metalism.newtonium_ingot": "Newtonium Ingot"
 }

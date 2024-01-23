@@ -1,4 +1,6 @@
 {
+  "block.metalism.keplerium_ore": "케플륨 광석",
   "block.metalism.newtonium_ore": "뉴터늄 광석",
+  "item.metalism.keplerium_ingot": "케플륨 주괴",
   "item.metalism.newtonium_ingot": "뉴터늄 주괴"
 }
